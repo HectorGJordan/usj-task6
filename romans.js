@@ -38,6 +38,7 @@ function init() {
       'event_label': modeCheckbox.checked ? 'ConvertIntegerToRoman' : 'ConvertRomanToInteger',
       'event_value': inputValue,
       'value': convertion.value
+      });
       
     } else {
       alert(convertion.message);
