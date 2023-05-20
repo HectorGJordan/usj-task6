@@ -3,6 +3,11 @@ const INVALID_ROMAN = 'Please enter a valid roman';
 const INVALID_INTEGER = 'Please enter a valid integer';
 const OUT_OF_RANGE = 'Out of range (1-3999)';
 
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-X4NT9XYLH6');
+
 function init() { 
   
   // Load elements once to avoid repetition on every invocation
