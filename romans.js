@@ -1,46 +1,46 @@
 function init() { 
   
   // Load elements once to avoid repetition on every invocation
-  var modeCheckbox = document.querySelector("input[type='checkbox']");
-  var header = document.querySelector("h1");
-  var convertButton = document.querySelector(".convert-button");
-  var outputArea = document.querySelector(".convert-output");
-  var inputArea = document.querySelector("input[type='text']");
+  var modeCheckbox = document.querySelector('input[type="checkbox"]');
+  var header = document.querySelector('h1');
+  var convertButton = document.querySelector('.convert-button');
+  var outputArea = document.querySelector('.convert-output');
+  var inputArea = document.querySelector('input[type="text"]');
 
   // Constants for the literals
-  const INVALID_ROMAN = "Please enter a valid roman numeral";
-  const INVALID_INTEGER = "Please enter a valid integer";
-  const OUT_OF_RANGE = "Out of range. Please enter a integer less than 4000";
+  const INVALID_ROMAN = 'Please enter a valid roman numeral';
+  const INVALID_INTEGER = 'Please enter a valid integer';
+  const OUT_OF_RANGE = 'Out of range. Please enter an integer less than 4000';
 
 
-  modeCheckbox.addEventListener("change", (e) => {
+  modeCheckbox.addEventListener('change', (e) => {
     header.innerHTML = getModeTitle(e.target.checked);
   });
 
   const getModeTitle = (integerToRoman) => {
-    return integerToRoman ? "Integer To Roman" : "Roman To Integer";
+    return integerToRoman ? 'Integer To Roman' : 'Roman To Integer';
   };
 
-  // Now, the convertion operation does only perform the operation. 
+  // Now, the conversion operation only performs the operation. 
   // Things we have extracted to this listener: 
   // 1 - Read the UI inputs (inputArea.value)
   // 2 - Write the UI output (outputArea.innerHTML)
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
-  convertButton.addEventListener("click", () => {
+  convertButton.addEventListener('click', () => {
     let inputValue = inputArea.value;
-    let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
-    if (convertion.result) {
-      outputArea.innerHTML = convertion.value;
+    let conversion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
+    if (conversion.result) {
+      outputArea.innerHTML = conversion.value;
     } else {
-      alert(convertion.message);
+      alert(conversion.message);
     }
   });
 
-  // Now the convertion methods receive both an input argument instead
+  // Now the conversion methods receive both an input argument instead
   // of reading directly from the UI.
   // On top of that, they return a JSON object instead of updating the
-  // UI directly. The JSON object contains the result (ok/nok), the value
+  // UI directly. The JSON object contains the result (ok/nok), the value,
   // and an error message if needed
   const convertRomanToInteger = (roman) => {
 
@@ -48,7 +48,7 @@ function init() {
       value: 0, 
       message: '',
       result: false 
-    }
+    };
 
     const romanNumeralRegex = new RegExp(
       /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/
@@ -61,7 +61,7 @@ function init() {
       return response;
     }
 
-    let arr = ["I", "V", "X", "L", "C", "D", "M"];
+    let arr = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
 
     let values = {
       I: 1,
@@ -93,10 +93,10 @@ function init() {
     return response;
   };
 
-  // Now the convertion methods receive both an input argument instead
+  // Now the conversion methods receive both an input argument instead
   // of reading directly from the UI.
   // On top of that, they return a JSON object instead of updating the
-  // UI directly. The JSON object contains the result (ok/nok), the value
+  // UI directly. The JSON object contains the result (ok/nok), the value,
   // and an error message if needed
   const convertIntegerToRoman = (num) => {
 
@@ -104,7 +104,7 @@ function init() {
       value: 0,
       message: '', 
       result: false 
-    }
+    };
 
     const numberRegex = new RegExp(/^\d+$/);
 
@@ -121,17 +121,17 @@ function init() {
     }
 
     const mapping = {
-      1: "I",
-      5: "V",
-      10: "X",
-      50: "L",
-      100: "C",
-      500: "D",
-      1000: "M",
+      1: 'I',
+      5: 'V',
+      10: 'X',
+      50: 'L',
+      100: 'C',
+      500: 'D',
+      1000: 'M',
     };
 
     let count = 1;
-    let str = "";
+    let str = '';
     while (num > 0) {
       let last = parseInt(num % 10);
       last *= count;
