@@ -3,10 +3,12 @@ const INVALID_ROMAN = 'Please enter a valid roman';
 const INVALID_INTEGER = 'Please enter a valid integer';
 const OUT_OF_RANGE = 'Out of range (1-3999)';
 
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-X4NT9XYLH6');
+gtag('event', 'Conversion', {
+                    'event_category': 'Convert',
+                    'event_label': modeCheckbox.checked ? 'ConvertIntegerToRoman' : 'ConvertRomanToInteger',
+                    'event_value': inputValue,
+                    'value': convertion.value
+                });
 
 function init() { 
   
