@@ -1,54 +1,51 @@
 // Constants for the literals
-const INVALID_ROMAN = 'Please enter a valid roman';
-const INVALID_INTEGER = 'Please enter a valid integer';
-const OUT_OF_RANGE = 'Out of range (1-3999)';
+const INVALID_ROMAN = "Please enter a valid roman";
+const INVALID_INTEGER = "Please enter a valid integer";
+const OUT_OF_RANGE = "Out of range (1-3999)";
 
-function init() { 
-  
+function init() {
   // Load elements once to avoid repetition on every invocation
-  var modeCheckbox = document.querySelector('input[type=\'checkbox\']');
-  var header = document.querySelector('h1');
-  var convertButton = document.querySelector('.convert-button');
-  var outputArea = document.querySelector('.convert-output');
-  var inputArea = document.querySelector('input[type=\'text\']');
+  var modeCheckbox = document.querySelector("input[type='checkbox']");
+  var header = document.querySelector("h1");
+  var convertButton = document.querySelector(".convert-button");
+  var outputArea = document.querySelector(".convert-output");
+  var inputArea = document.querySelector("input[type='text']");
 
-
-  modeCheckbox.addEventListener('change', function(e) {
+  modeCheckbox.addEventListener("change", function (e) {
     header.innerHTML = getModeTitle(e.target.checked);
-    
+
     // eslint-disable-next-line no-undef
-    gtag('event', 'cambio_modo', {
-        'event_category': 'Checkbox',
-        'event_label': e.target.checked ? 'Integer To Roman' : 'Roman To Integer'
-      });
+    gtag("event", "cambio_modo", {
+      event_category: "Checkbox",
+      event_label: e.target.checked ? "Integer To Roman" : "Roman To Integer",
+    });
   });
 
-  const getModeTitle = function(integerToRoman) {
-    return integerToRoman ? 'Integer To Roman' : 'Roman To Integer';
-    
-    
+  const getModeTitle = function (integerToRoman) {
+    return integerToRoman ? "Integer To Roman" : "Roman To Integer";
   };
 
-  // Now, the convertion operation does only perform the operation. 
-  // Things we have extracted to this listener: 
+  // Now, the convertion operation does only perform the operation.
+  // Things we have extracted to this listener:
   // 1 - Read the UI inputs (inputArea.value)
   // 2 - Write the UI output (outputArea.innerHTML)
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
-  convertButton.addEventListener('click', function() {
+  convertButton.addEventListener("click", function () {
     var inputValue = inputArea.value;
-    var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
+    var convertion = modeCheckbox.checked
+      ? convertIntegerToRoman(inputValue)
+      : convertRomanToInteger(inputValue);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
     } else {
       alert(convertion.message);
     }
     // eslint-disable-next-line no-undef
-    gtag('event', 'convertButton', {
-        'event_label': convertion
-      });
+    gtag("event", "convertButton", {
+      event_label: convertion,
+    });
   });
-
 }
 
 // Now the convertion methods receive both an input argument instead
@@ -56,12 +53,11 @@ function init() {
 // On top of that, they return a JSON object instead of updating the
 // UI directly. The JSON object contains the result (ok/nok), the value
 // and an error message if needed
-const convertRomanToInteger = function(roman) {
-
+const convertRomanToInteger = function (roman) {
   var response = {
-    value: 0, 
-    message: '',
-    result: false 
+    value: 0,
+    message: "",
+    result: false,
   };
 
   // Regexp to check if a string is a valid roman number
@@ -79,7 +75,7 @@ const convertRomanToInteger = function(roman) {
     return response;
   }
 
-  var arr = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+  var arr = ["I", "V", "X", "L", "C", "D", "M"];
 
   var values = {
     I: 1,
@@ -116,12 +112,11 @@ const convertRomanToInteger = function(roman) {
 // On top of that, they return a JSON object instead of updating the
 // UI directly. The JSON object contains the result (ok/nok), the value
 // and an error message if needed
-const convertIntegerToRoman = function(num) {
-
+const convertIntegerToRoman = function (num) {
   var response = {
     value: 0,
-    message: '', 
-    result: false 
+    message: "",
+    result: false,
   };
 
   // Regexp to check the input is a valid integer
@@ -138,21 +133,21 @@ const convertIntegerToRoman = function(num) {
   // Integer not in the supported range -> exit with the right message
   if (Number(num) > 3999 || Number(num) < 1) {
     response.message = OUT_OF_RANGE;
-    return response;   
+    return response;
   }
 
   const mapping = {
-    1: 'I',
-    5: 'V',
-    10: 'X',
-    50: 'L',
-    100: 'C',
-    500: 'D',
-    1000: 'M',
+    1: "I",
+    5: "V",
+    10: "X",
+    50: "L",
+    100: "C",
+    500: "D",
+    1000: "M",
   };
 
   var count = 1;
-  var str = '';
+  var str = "";
   while (num > 0) {
     var last = parseInt(num % 10);
     last *= count;
@@ -172,7 +167,7 @@ const convertIntegerToRoman = function(num) {
   return response;
 };
 
-const lessThan9 = function(num, obj) {
+const lessThan9 = function (num, obj) {
   if (num === 9) {
     return obj[1] + obj[10];
   } else if (num >= 5 && num < 9) {
@@ -184,7 +179,7 @@ const lessThan9 = function(num, obj) {
   }
 };
 
-const greaterThan9 = function(num, obj) {
+const greaterThan9 = function (num, obj) {
   if (num >= 10 && num < 50) {
     if (num === 10) {
       return obj[10];
@@ -234,33 +229,35 @@ const greaterThan9 = function(num, obj) {
 };
 
 if (!String.prototype.repeat) {
-  String.prototype.repeat = function(count) {
-    'use strict';
+  String.prototype.repeat = function (count) {
+    "use strict";
     if (this == null) {
-      throw new TypeError('can\'t convert ' + this + ' to object');
+      throw new TypeError("can't convert " + this + " to object");
     }
-    var str = '' + this;
+    var str = "" + this;
     count = +count;
     if (count != count) {
       count = 0;
     }
     if (count < 0) {
-      throw new RangeError('repeat count must be non-negative');
+      throw new RangeError("repeat count must be non-negative");
     }
     if (count == Infinity) {
-      throw new RangeError('repeat count must be less than infinity');
+      throw new RangeError("repeat count must be less than infinity");
     }
     count = Math.floor(count);
     if (str.length == 0 || count == 0) {
-      return '';
+      return "";
     }
     // Ensuring count is a 31-bit integer allows us to heavily optimize the
     // main part. But anyway, most current (August 2014) browsers can't handle
     // strings 1 << 28 chars or longer, so:
     if (str.length * count >= 1 << 28) {
-      throw new RangeError('repeat count must not overflow maximum string size');
+      throw new RangeError(
+        "repeat count must not overflow maximum string size"
+      );
     }
-    var rpt = '';
+    var rpt = "";
     for (;;) {
       if ((count & 1) == 1) {
         rpt += str;
