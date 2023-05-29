@@ -232,7 +232,8 @@ if (!String.prototype.repeat) {
   String.prototype.repeat = function (count) {
     'use strict';
     if (this == null) {
-      throw new TypeError("can't convert '" + this + ' to object');
+      throw new TypeError('can\'t convert ' + this + ' to object');
+
     }
     var str = ' '+ this;
     count = +count;
