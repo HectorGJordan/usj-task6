@@ -18,9 +18,9 @@ function init() {
     
     // eslint-disable-next-line no-undef
     gtag('event', 'cambio_modo', {
-    'event_category': 'Checkbox',
-    'event_label': e.target.checked ? 'Integer To Roman' : 'Roman To Integer'
-  });
+        'event_category': 'Checkbox',
+        'event_label': e.target.checked ? 'Integer To Roman' : 'Roman To Integer'
+      });
   });
 
   const getModeTitle = function(integerToRoman) {
@@ -44,9 +44,9 @@ function init() {
       alert(convertion.message);
     }
     // eslint-disable-next-line no-undef
-     gtag('event', 'convertButton', {
-    'event_label': convertion
-  });
+    gtag('event', 'convertButton', {
+        'event_label': convertion
+      });
   });
 
 }
