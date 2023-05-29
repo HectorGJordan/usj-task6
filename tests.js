@@ -86,8 +86,8 @@ test("E-Invalid_roman_inputs", function(assert) {
   assert.propEqual(convertIntegerToRoman(4), {value: 'IV', message: '', result: true}, "TC-F-16");
   assert.propEqual(convertIntegerToRoman(101), {value: 'CI', message: '', result: true}, "TC-F-17");
   assert.propEqual(convertIntegerToRoman(501), {value: 'DI', message: '', result: true}, "TC-F-18");
-  assert.propEqual(convertIntegerToRoman(1001), {value: 'MI', message: '', result: true}, "TC-F-19");*/
-});
+  assert.propEqual(convertIntegerToRoman(1001), {value: 'MI', message: '', result: true}, "TC-F-19");
+});*/
 
 test("G-Invalid_int_Inputs", function(assert) {
   assert.propEqual(convertIntegerToRoman("XXXX"), {value: 0, message: INVALID_INTEGER, result: false}, "TC-G-1");
