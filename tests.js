@@ -71,22 +71,22 @@ test("F-Basic_int_to_roman", function(assert) {
   assert.propEqual(convertIntegerToRoman(3999), {value: 'MMMCMXCIX', message: '', result: true}, "TC-F-1");
   assert.propEqual(convertIntegerToRoman(456), {value: 'CDLVI', message: '', result: true}, "TC-F-2");
   assert.propEqual(convertIntegerToRoman(885), {value: 'DCCCLXXXV', message: '', result: true}, "TC-F-3");
-  assert.propEqual(convertIntegerToRoman(1512), {value: "MDXII", message: '', result: true}, "TC-F-4");
-  assert.propEqual(convertIntegerToRoman(210), {value: "CCX", message: '', result: true}, "TC-F-5");
-  assert.propEqual(convertIntegerToRoman(1105), {value: "MCV", message: '', result: true}, "TC-F-6");
-  assert.propEqual(convertIntegerToRoman(51), {value: "LI", message: '', result: true}, "TC-F-7");
-  assert.propEqual(convertIntegerToRoman(1050), {value: "ML", message: '', result: true}, "TC-F-8");
-  assert.propEqual(convertIntegerToRoman(40), {value: "XL", message: '', result: true}, "TC-F-9");
-  assert.propEqual(convertIntegerToRoman(5), {value: "V", message: '', result: true}, "TC-F-10");
-  assert.propEqual(convertIntegerToRoman(30), {value: "XXX", message: '', result: true}, "TC-F-11");
-  assert.propEqual(convertIntegerToRoman(1020), {value: "MXX", message: '', result: true}, "TC-F-12");
-  assert.propEqual(convertIntegerToRoman(1005), {value: "MV", message: '', result: true}, "TC-F-13");
-  assert.propEqual(convertIntegerToRoman(505), {value: "DV", message: '', result: true}, "TC-F-14");
-  assert.propEqual(convertIntegerToRoman(1), {value: "I", message: '', result: true}, "TC-F-15");
-  assert.propEqual(convertIntegerToRoman(4), {value: "IV", message: '', result: true}, "TC-F-16");
-  assert.propEqual(convertIntegerToRoman(101), {value: "CI", message: '', result: true}, "TC-F-17");
-  assert.propEqual(convertIntegerToRoman(501), {value: "DI", message: '', result: true}, "TC-F-18");
-  assert.propEqual(convertIntegerToRoman(1001), {value: "MI", message: '', result: true}, "TC-F-19");
+  assert.propEqual(convertIntegerToRoman(1512), {value: 'MDXII', message: '', result: true}, "TC-F-4");
+  assert.propEqual(convertIntegerToRoman(210), {value: 'CCX', message: '', result: true}, "TC-F-5");
+  assert.propEqual(convertIntegerToRoman(1105), {value: 'MCV', message: '', result: true}, "TC-F-6");
+  assert.propEqual(convertIntegerToRoman(51), {value: 'LI', message: '', result: true}, "TC-F-7");
+  assert.propEqual(convertIntegerToRoman(1050), {value: 'ML', message: '', result: true}, "TC-F-8");
+  assert.propEqual(convertIntegerToRoman(40), {value: 'XL', message: '', result: true}, "TC-F-9");
+  assert.propEqual(convertIntegerToRoman(5), {value: 'V', message: '', result: true}, "TC-F-10");
+  assert.propEqual(convertIntegerToRoman(30), {value: 'XXX', message: '', result: true}, "TC-F-11");
+  assert.propEqual(convertIntegerToRoman(1020), {value: 'MXX', message: '', result: true}, "TC-F-12");
+  assert.propEqual(convertIntegerToRoman(1005), {value: 'MV', message: '', result: true}, "TC-F-13");
+  assert.propEqual(convertIntegerToRoman(505), {value: 'DV', message: '', result: true}, "TC-F-14");
+  assert.propEqual(convertIntegerToRoman(1), {value: 'I', message: '', result: true}, "TC-F-15");
+  assert.propEqual(convertIntegerToRoman(4), {value: 'IV', message: '', result: true}, "TC-F-16");
+  assert.propEqual(convertIntegerToRoman(101), {value: 'CI', message: '', result: true}, "TC-F-17");
+  assert.propEqual(convertIntegerToRoman(501), {value: 'DI', message: '', result: true}, "TC-F-18");
+  assert.propEqual(convertIntegerToRoman(1001), {value: 'MI', message: '', result: true}, "TC-F-19");
 });
 
 test("G-Invalid_int_Inputs", function(assert) {
