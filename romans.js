@@ -15,10 +15,18 @@ function init() {
 
   modeCheckbox.addEventListener('change', function(e) {
     header.innerHTML = getModeTitle(e.target.checked);
+    
+    // eslint-disable-next-line no-undef
+    gtag('event', 'cambio_modo', {
+    'event_category': 'Checkbox',
+    'event_label': e.target.checked ? 'Integer To Roman' : 'Roman To Integer'
+  });
   });
 
   const getModeTitle = function(integerToRoman) {
     return integerToRoman ? 'Integer To Roman' : 'Roman To Integer';
+    
+    
   };
 
   // Now, the convertion operation does only perform the operation. 
@@ -35,6 +43,10 @@ function init() {
     } else {
       alert(convertion.message);
     }
+    // eslint-disable-next-line no-undef
+     gtag('event', 'convertButton', {
+    'event_label': convertion
+  });
   });
 
 }
