@@ -14,7 +14,7 @@ function init() {
   modeCheckbox.addEventListener('change', function (e) {
     header.innerHTML = getModeTitle(e.target.checked);
     // eslint-disable-next-line no-undef
-    gtag('event', 'cambio_modo', {
+    gtag('event', 'Convert_CheckBox', {
       'event_category': 'Checkbox',
       'event_label': e.target.checked ? 'Integer To Roman' : 'Roman To Integer',
     });
